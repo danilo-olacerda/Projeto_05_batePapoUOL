@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+b {
+    color: #AAAAAA;;
+}
+body {
+    background-color: #E5E5E5;
+}
+strong {
+    font-weight: bold;
+}
+.container-top {
+    height: 80px;
+    width: 100%;
+    padding: 0 22px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+.container-top img {
+    margin-top: 16px;
+    margin-bottom: 11px;
+}
+.container-top div {
+    display: flex;
+    justify-content: space-between;
+}
+.container-top ion-icon {
+    font-size: 45px;
+    margin-right: 22px;
+    margin-top: 18px;
+}
+.container-bot {
+    height: 80px;
+    width: 100%;
+    padding: 0 17px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #FFFFFF;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+}
+.container-bot input {
+    margin: 25px 0;
+    width: 80%;
+    border: none;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+}
+::placeholder {
+    font-style: italic;
+}
+.container-bot div {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.container-bot ion-icon {
+    font-size: 26px;
+    margin: 27px 0;
+}
+.chat {
+    margin-top: 106px;
+    margin-bottom: 84px;
+}
+.msg {
+    width: 100%;
+    background-color: #DCDCDC;
+    padding: 14px 8px;
+    margin-bottom: 4px;
+}
+.msg p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+.normal {
+    background-color: #FFFFFF;
+}
+.private {
+    background-color: #FFDEDE;
+}
