@@ -6,6 +6,7 @@ b {
 }
 body {
     background-color: #E5E5E5;
+    width: 100%;
 }
 strong {
     font-weight: bold;
