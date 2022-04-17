@@ -10,24 +10,69 @@
     <link rel="icon" href="/midia/icon.jpg">
     <link rel="stylesheet" href="/styles/reset.css">
     <link rel="stylesheet" href="/styles/styles.css">
-    <title>Document</title>
+    <title>Bate-Papo UOL</title>
 </head>
 <body>
-    <main>
+    <div class="container-login">
+        <img src="/midia/logo 2.png">
+        <input class="name" type="text" placeholder="Digite seu nome">
+        <button onclick="login()"><p>Entrar</p></button>
+    </div>
+    <main class="hidden">
         <div class="container-top">
             <div>
                 <img src="/midia/logo 1.png">
-                <ion-icon name="people"></ion-icon>
+                <ion-icon onclick="openMenu()" name="people"></ion-icon>
             </div>
         </div>
         <div class="chat"></div>
         <div class="container-bot">
             <div>
-                <input type="text" placeholder="Escreva aqui...">
+                <input class="msg-area" type="text" placeholder="Escreva aqui...">
                 <ion-icon name="paper-plane-outline" onclick="send()"></ion-icon>
             </div>   
         </div>
     </main>
+    <div class="container-corner hidden">
+        <div class="back" onclick="back()"></div>
+        <div class="menu">
+            <p>Escolha um contato para enviar mensagem:</p>
+            <div class="people">
+                <div class="person check">
+                    <div>
+                        <ion-icon name="people"></ion-icon>
+                        <h4>Todos</h4>
+                    </div>
+                    <div>
+                        <ion-icon name="checkmark"></ion-icon>
+                    </div>         
+                </div>
+            </div>
+            <p>Escolha a visibilidade:</p>
+            <div class="types">
+                <div class="type">
+                    <div class="option check" onclick="selectType(this)">
+                        <div>
+                            <ion-icon name="lock-open"></ion-icon>
+                            <h4>Público</h4>
+                        </div>
+                        <div>
+                            <ion-icon name="checkmark"></ion-icon>
+                        </div>         
+                    </div>
+                    <div class="option" onclick="selectType(this)">
+                        <div>
+                            <ion-icon name="lock-closed"></ion-icon>
+                            <h4>Reservadamente</h4>
+                        </div>
+                        <div>
+                            <ion-icon name="checkmark"></ion-icon>
+                        </div>         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

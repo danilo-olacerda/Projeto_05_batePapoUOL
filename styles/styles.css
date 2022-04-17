@@ -4,9 +4,13 @@
 b {
     color: #AAAAAA;;
 }
+html {
+    height: 100%;
+}
 body {
     background-color: #E5E5E5;
     width: 100%;
+    height: 100%;
 }
 strong {
     font-weight: bold;
@@ -52,8 +56,9 @@ strong {
     font-weight: 400;
     font-size: 18px;
     line-height: 21px;
+    outline: none;
 }
-::placeholder {
+.msg-area::placeholder {
     font-style: italic;
 }
 .container-bot div {
@@ -67,13 +72,14 @@ strong {
 }
 .chat {
     margin-top: 106px;
-    margin-bottom: 84px;
+    padding-bottom: 84px;
 }
 .msg {
     width: 100%;
     background-color: #DCDCDC;
     padding: 14px 8px;
     margin-bottom: 4px;
+    word-wrap: break-word;
 }
 .msg p {
     font-family: 'Roboto';
@@ -87,4 +93,109 @@ strong {
 }
 .private {
     background-color: #FFDEDE;
+}
+.container-login {
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 72px;
+}
+.container-login img {
+    width: 130px;
+    margin-bottom: 94px;
+}
+.container-login input {
+    margin-bottom: 15px;
+    background: #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #AEAEAE;
+    padding: 10px 30px;
+}
+.container-login button {
+    background-color: #E7E7E7;
+    border-radius: 9px;
+    border: none;
+}
+.container-login p {
+    margin: 10px 25px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #696969;
+}
+.container-corner {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    top: 0;
+    left: 0;
+}
+.back {
+    width: 30%;
+    background: rgba(0, 0, 0, 0.6);
+}
+.menu {
+    background-color: #FFFFFF;
+    width: 70%;
+    height: 100%;
+    overflow-y : scroll;
+}
+.menu > p {
+    margin: 20px 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #000000;
+}
+.person ion-icon:first-child, .option ion-icon:first-child {
+    font-size: 25px;
+    margin-left: 17px;
+    margin-right: 7px;
+}
+.person ion-icon:last-child, .option ion-icon:last-child {
+    font-size: 20px;
+    color: #28BB25;
+    display: none;
+}
+.check ion-icon:last-child {
+    display: initial;
+}
+.person h4, .option h4 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+.person, .option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.person div, .option div {
+    display: flex;
+    align-items: center;
+}
+.hidden {
+    display: none;
 }
