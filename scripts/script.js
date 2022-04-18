@@ -43,7 +43,7 @@ function loadMsg(info){
             document.querySelector(".chat").innerHTML+= `<div class="msg"><p><b>${messages[i].time} </b><strong>${messages[i].from}</strong> para <strong>${messages[i].to}</strong>: ${messages[i].text}</p></div>`
         } else if (messages[i].type === 'message') {
             document.querySelector(".chat").innerHTML+= `<div class="msg normal"><p><b>${messages[i].time} </b><strong>${messages[i].from}</strong> para <strong>${messages[i].to}</strong>: ${messages[i].text}</p></div>`
-        } else if (messages[i].type === 'private_message' && (messages[i].from === user.name || messages[i].to === selectedUser)) {
+        } else if (messages[i].type === 'private_message' && (messages[i].from === user.name || messages[i].to === selectedUser || messages[i].to === "Todos")) {
             document.querySelector(".chat").innerHTML+= `<div class="msg private"><p><b>${messages[i].time} </b><strong>${messages[i].from}</strong> para <strong>${messages[i].to}</strong>: ${messages[i].text}</p></div>`
         }
         
@@ -95,8 +95,9 @@ function getParticipants() {
 }
 function loadParticipants(info) {
     let users = info.data;
+    let keepUser = 0;
     document.querySelector(".people").innerHTML=`
-    <div class="person check">
+    <div class="person todos" onclick="selectUser(this)">
         <div>
             <ion-icon name="people"></ion-icon>
             <h4>Todos</h4>
@@ -105,7 +106,6 @@ function loadParticipants(info) {
             <ion-icon name="checkmark"></ion-icon>
         </div>         
     </div>`;
-    selectedUser="Todos";
     for (let i=0; i<users.length; i++) {
         if (users[i].name!= user.name) {
         document.querySelector(".people").innerHTML+=`
@@ -119,6 +119,28 @@ function loadParticipants(info) {
             </div>         
         </div>`;
         }
+        if (selectedUser===users[i].name) {
+            document.querySelector(".people").lastChild.classList.add("check");
+            keepUser=1;
+        }
+    }
+    if (keepUser===0 && selectedUser!="Todos") {
+        alert("O usuario selecionado desconectou! Mudando para todos.")
+        selectedUser="Todos";
+        document.querySelector(".todos").classList.add("check");
+        if (msgType==="private_message") {
+            document.querySelector(".send-details").querySelector("h4").innerHTML = `<h4>Enviando para ${selectedUser} (reservadamente)</h4>`;
+        } else {
+            document.querySelector(".send-details").querySelector("h4").innerHTML = `<h4>Enviando para ${selectedUser} (Público)</h4>`;
+        }
+    }
+    if (selectedUser==="Todos") {
+        document.querySelector(".todos").classList.add("check");
+        if (msgType==="private_message") {
+            document.querySelector(".send-details").querySelector("h4").innerHTML = `<h4>Enviando para ${selectedUser} (reservadamente)</h4>`;
+        } else {
+            document.querySelector(".send-details").querySelector("h4").innerHTML = `<h4>Enviando para ${selectedUser} (Público)</h4>`;
+        }
     }
 }
 function selectUser(el) {
@@ -129,6 +151,11 @@ function selectUser(el) {
     } else {
         selection.classList.remove("check");
         el.classList.add("check");
+    }
+    if (msgType==="private_message") {
+        document.querySelector(".send-details").querySelector("h4").innerHTML = `<h4>Enviando para ${selectedUser} (reservadamente)</h4>`;
+    } else {
+        document.querySelector(".send-details").querySelector("h4").innerHTML = `<h4>Enviando para ${selectedUser} (Público)</h4>`;
     }
 }
 function selectType(el) {
@@ -141,7 +168,9 @@ function selectType(el) {
     }
     if (el.querySelector("h4").innerHTML === "Reservadamente") {
         msgType="private_message";
+        document.querySelector(".send-details").querySelector("h4").innerHTML = `<h4>Enviando para ${selectedUser} (reservadamente)</h4>`;
     } else {
+        document.querySelector(".send-details").querySelector("h4").innerHTML = `<h4>Enviando para ${selectedUser} (Público)</h4>`;
         msgType= "message";
     }
 }

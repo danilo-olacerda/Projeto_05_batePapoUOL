@@ -49,7 +49,7 @@ strong {
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
 }
 .container-bot input {
-    margin: 25px 0;
+    margin-top: 25px;
     width: 80%;
     border: none;
     font-family: 'Roboto';
@@ -60,6 +60,16 @@ strong {
 }
 .msg-area::placeholder {
     font-style: italic;
+}
+.send-details {
+    flex-direction: column;
+}
+.send-details h4 {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    color: #000000;
 }
 .container-bot div {
     height: 100%;
